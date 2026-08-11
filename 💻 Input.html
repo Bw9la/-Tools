@@ -1,0 +1,110 @@
+<!-- Please revise these before using them in your work even if you use snippets certain values are not set  eg; the range value.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Floating Card with Text Field</title>
+<style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+  font-family: Arial, sans-serif;
+}
+
+.card {
+  width: 250px;
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+  animation: float 3s ease-in-out infinite;
+  text-align: center;
+}
+
+.card h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.card input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.card input[type="text"]:focus {
+  border-color: #2c5364;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+</style>
+</head>
+<body>
+  <div class="card">
+    <h2>Enter Your Name</h2>
+<br>
+<input type="text" placeholder="Type here...">
+<br>
+<br><br><br><br>
+<input type="button" button value=Button> </input>
+<br>
+<input type="checkbox">
+<br>
+<input type="color">
+<br><br>
+
+<input type="date">
+<br>
+<input type="datetime-local">
+<br>
+<input type="email">
+<br>
+<input type="file">Drag file to box above⬆️</input>
+<br>
+<input type="hidden">
+<br>
+<input type="image">
+<br>
+<input type="month">
+<br>
+<input type="number">
+<br>
+<input type="password">
+<br>
+<input type="radio">
+<br>
+<input type="range">
+<br>
+<br>
+<br>
+<br><input type="reset">
+<br>
+<br>
+<br>
+<input type="search">
+<br>
+<br>
+<br>
+<input type="submit"><br>
+<br>
+<br>
+<br>
+<input type="tel"><br>
+<input type="text"> anotoher text field</input>
+<input type="time"><br>
+<input type="url">https://www.smesh.com
+<input type="week">
+  </div>
+</body>
+</html>
