@@ -1,0 +1,32 @@
+<!SETYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="twiddling thumbs" content="width=device-width, initial-scale=1.0">
+<title> #b9 Gradient Loader</title>
+<style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+  /*change the color or omit to result in loader by itself*/ background: #222;
+}
+
+.loader {
+  width: 30px;
+  height: 30px;
+  border-radius: 45%;
+  background: conic-gradient(#ff6b6b, #feca57, #48dbfb, #1dd1a1, #ff6b6b);
+  animation: spin 3.5s linear infinite;
+}
+/*reduce rotation to slow spinner down */ 
+@keyframes spin {
+  to { transform: rotate(6800deg); }
+}
+</style>
+</head>
+<body>
+  <div class="loader"></div>
+</body>
+</html>         
