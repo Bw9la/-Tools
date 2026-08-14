@@ -1,6 +1,6 @@
-Put your HTML text here<!DOCTYPE html>
-<html lang="en">
-<head>
+  <!DOCTYPE html>
+  <html lang="en">
+   <head></head>
   <meta charset="UTF-8">
   <meta name="B-Tech x('MTA')" content="width=device-width, initial-scale=1.0">
   <title> Module - G ExpressLine Transit Network</title>
@@ -233,7 +233,7 @@ Put your HTML text here<!DOCTYPE html>
       { id: 3, name: "Greenpoint Ave", branch: "branch3" },
       { id: 4, name: "Metropolitan Ave", branch: "branch4" },
       { id: 5, name: "Flushing Ave", branch: "branch5" },
-      { id: 6, name: "Bedford-Nostrand", branch: "branch6" },
+      { id: 6, name: "Bedford-Nostrand Ave", branch: "branch6" },
       { id: 7, name: "Clinton-Washington", branch: "branch7" },
       { id: 8, name: "Hoyt-Schermerhorn", branch: "branch8" },
       { id: 9, name: "Carroll St", branch: "branch9" },
@@ -250,12 +250,12 @@ Put your HTML text here<!DOCTYPE html>
       { id: 20, name: "High St", branch: "branch20" },
       { id: 21, name: "Nostrand Ave", branch: "branch21" },
       { id: 22, name: "Marcy Ave", branch: "branch22" },
-      { id: 23, name: "Broadway", branch: "branch23" }
+      { id: 23, name: "Broadway Ave", branch: "branch23" }
     ];
 
     const sphere = document.getElementById('sphere');
     const totalNodes = stationData.length;
-    const radius = 300;
+    const radius = 380;
     const nodeMap = new Map();
 
     stationData.forEach((station, i) => {
@@ -312,7 +312,7 @@ Put your HTML text here<!DOCTYPE html>
     function renderLiveModule() {
       currentX += (targetX - currentX) * 0.03;
       currentY += (targetY - currentY) * 0.03;
-      autoRotationAngle += 0.7;
+      autoRotationAngle += 0.3;
 
       sphere.style.transform = `rotateX(${currentX}deg) rotateY(${currentY + autoRotationAngle}deg)`;
       requestAnimationFrame(renderLiveModule);
