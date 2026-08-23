@@ -161,6 +161,35 @@
       font-size: 11px;
       line-height: 1.6;
     }
+
+    .branch-list {
+      position: fixed;
+      left: 20px;
+      top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-height: 70vh;
+      overflow-y: auto;
+      padding: 10px;
+      background-color: rgba(5, 5, 5, 0.72);
+      border: 1px solid rgba(0, 255, 204, 0.25);
+      border-radius: 8px;
+      font-size: 11px;
+    }
+
+    .branch {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      padding: 4px 8px;
+      border-left: 2px solid rgba(0, 255, 204, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    .branch:hover {
+      color: #00ffcc;
+      border-left-color: #00ffcc;
+    }
   </style>
 </head>
 <body>
@@ -170,6 +199,64 @@
        ========================================================================== -->
   <div class="scene">
     <div class="sphere" id="sphere"></div>
+  </div>
+
+  <div class="branch-list" aria-label="L line branch list">
+    <a class="branch branch1" data-value="Station#1">
+      Canarsie Rockaway Pkwy
+    </a>
+
+    <a class="branch branch2" data-value="Station#2">
+      New Lots Av
+    </a>
+
+    <a class="branch branch3" data-value="Station#3">
+      Livonia St
+    </a>
+
+    <a class="branch branch4" data-value="Station#4">
+      Atlantic-Av
+    </a>
+
+    <a class="branch branch5" data-value="Station#5">
+      Bushwick Av Aberdeen
+    </a>
+
+    <a class="branch branch6" data-value="Station#6">
+      Halsey
+    </a>
+
+    <a class="branch branch7" data-value="Station#7">
+      Dekalb
+    </a>
+
+    <a class="branch branch8" data-value="Station#8">
+      Morgan
+    </a>
+
+    <a class="branch branch9" data-value="Station#9">
+      Grand St
+    </a>
+
+    <a class="branch branch10" data-value="Station#10">
+      Lorimer
+    </a>
+
+    <a class="branch branch11" data-value="Station#11">
+      1 Av
+    </a>
+
+    <a class="branch branch12" data-value="Station#12">
+      14 st Union Sq
+    </a>
+
+    <a class="branch branch13" data-value="Station#13">
+      6 av
+    </a>
+
+    <a class="branch branch14" data-value="Station#14">
+      8 av
+    </a>
   </div>
 
   <!-- Info Panel for Selected Station -->
