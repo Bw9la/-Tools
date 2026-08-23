@@ -3,8 +3,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="#b-tech (B)" content="width=device-width, initial-scale=1.0">
-  <title>Live 3D Spherical Module - Transit Network</title>
+  <meta name="#B-tech x(MTA)" content="width=device-width, initial-scale=1.0">
+  <title>🌐 Module B-ExpressLine - Transit Network</title>
   <style>
     /* ==========================================================================
        CSS STYLING & 3D VIEWPORT CONTEXT
@@ -166,6 +166,66 @@
 </head>
 <body>
 
+<div class="scene">
+    <div class="sphere" id="sphere"></div>
+  </div>
+
+  <div class="branch-list" aria-label="Z Expressline branch list">
+    <a class="branch branch1" data-value="station #1">
+        Bedford Park Blvd
+        </a>
+    <a class="branch branch2" data-value="station #2">
+        Fordham Rd
+        </a>
+    <a class="branch branch3" data-value="station #3">
+        Tremont Av
+        </a>
+    <a class="branch branch4" data-value="station #4">
+       170 st
+        </a>
+    <a class="branch branch5" data-value="station #5">
+        145 st
+        </a>
+    <a class="branch branch6" data-value="station #6">
+        125 st
+        </a>
+    <a class="branch branch7" data-value="station #7">
+        Cathedral Parkway
+        </a>
+    <a class="branch branch8" data-value="station #8">
+        96 st
+        </a>
+    <a class="branch branch9" data-value="station #9">
+        81 St
+        </a>
+    <a class="branch branch10" data-value="station #10">
+        39 St Colombus Circle
+        </a>
+    <a class="branch branch11" data-value="station #11">
+        47-50 Rockfeller
+        </a>
+    <a class="branch branch12" data-value="station #12">
+        23 St
+        </a>
+    <a class="branch branch13" data-value="station #13">
+        West 4 St
+        </a>
+    <a class="branch branch14" data-value="station #14">
+       Dekalb Ave
+        </a>
+    <a class="branch branch15" data-value="station #15">   
+       7 Ave
+        </a>
+    <a class="branch branch16" data-value="station #16">
+       Church Ave
+        </a>
+    <a class="branch branch17" data-value="station #17">
+       Kings Hwy
+    </a>
+    <a class="branch branch18" data-value="station #18">
+      Auxiliray Station
+</a>
+  </div>
   <!-- ==========================================================================
        HTML STRUCTURE
        ========================================================================== -->
@@ -195,11 +255,11 @@
     const stationData = [
       { id: 1, name: "Bedford park Blvd", branch: "branch1" },
       { id: 2, name: "Fordham Rd", branch: "branch2" },
-      { id: 3, name: "Tremont Av", branch: "branch3" },
+      { id: 3, name: "Tremont Ave", branch: "branch3" },
       { id: 4, name: "170 st", branch: "branch4" },
       { id: 5, name: "145 st", branch: "branch5" },
       { id: 6, name: "125 st", branch: "branch6" },
-      { id: 7, name: "Cathedral pkwy", branch: "branch7" },
+      { id: 7, name: "Cathedral Parkway", branch: "branch7" },
       { id: 8, name: "96 st", branch: "branch8" },
       { id: 9, name: "81 st", branch: "branch9" },
       { id: 10, name: "39 St Colombus Circle", branch: "branch10" },
@@ -207,8 +267,8 @@
       { id: 12, name: "23 st", branch: "branch12" },
       { id: 13, name: "West 4 st", branch: "branch13" },
       { id: 14, name: "Dekalb Av", branch: "branch14" },
-      { id: 15, name: "7 Av", branch: "branch15" },
-      { id: 16, name: "church Av", branch: "branch16" },
+      { id: 15, name: "7 Ave", branch: "branch15" },
+      { id: 16, name: "Church Ave", branch: "branch16" },
       { id: 17, name: "Kings Hwy", branch: "branch17" },
       { id: 18, name: "Auxilliray station", branch: "branch18" },
       { id: 19, name: "Auxilliray station", branch: "branch19" },
