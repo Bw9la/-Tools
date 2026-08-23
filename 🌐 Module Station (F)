@@ -182,15 +182,40 @@
     .branch {
       color: rgba(255, 255, 255, 0.8);
       text-decoration: none;
-      padding: 4px 8px;
+      padding: 6px 8px;
       border-left: 2px solid rgba(0, 255, 204, 0.4);
       transition: all 0.2s ease;
       cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
     }
 
     .branch:hover {
       color: #00ffcc;
       border-left-color: #00ffcc;
+      background-color: rgba(0, 255, 204, 0.05);
+    }
+
+    .branch-name {
+      display: block;
+      font-weight: bold;
+      font-size: 10px;
+    }
+
+    .branch-stations {
+      display: block;
+      font-size: 9px;
+      color: rgba(0, 255, 204, 0.6);
+      font-weight: normal;
+    }
+
+    .station-count {
+      display: inline-block;
+      background-color: rgba(0, 255, 204, 0.1);
+      padding: 1px 4px;
+      border-radius: 3px;
+      color: rgba(0, 255, 204, 0.8);
     }
   </style>
 </head>
@@ -204,29 +229,8 @@
   </div>
 
   <!-- Branch list for station filtering -->
-  <div class="branch-list" aria-label="Transit line branch list">
-    <a class="branch branch1" data-value="branch1">Branch 1</a>
-    <a class="branch branch2" data-value="branch2">Branch 2</a>
-    <a class="branch branch3" data-value="branch3">Branch 3</a>
-    <a class="branch branch4" data-value="branch4">Branch 4</a>
-    <a class="branch branch5" data-value="branch5">Branch 5</a>
-    <a class="branch branch6" data-value="branch6">Branch 6</a>
-    <a class="branch branch7" data-value="branch7">Branch 7</a>
-    <a class="branch branch8" data-value="branch8">Branch 8</a>
-    <a class="branch branch9" data-value="branch9">Branch 9</a>
-    <a class="branch branch10" data-value="branch10">Branch 10</a>
-    <a class="branch branch11" data-value="branch11">Branch 11</a>
-    <a class="branch branch12" data-value="branch12">Branch 12</a>
-    <a class="branch branch13" data-value="branch13">Branch 13</a>
-    <a class="branch branch14" data-value="branch14">Branch 14</a>
-    <a class="branch branch15" data-value="branch15">Branch 15</a>
-    <a class="branch branch16" data-value="branch16">Branch 16</a>
-    <a class="branch branch17" data-value="branch17">Branch 17</a>
-    <a class="branch branch18" data-value="branch18">Branch 18</a>
-    <a class="branch branch19" data-value="branch19">Branch 19</a>
-    <a class="branch branch20" data-value="branch20">Branch 20</a>
-    <a class="branch branch21" data-value="branch21">Branch 21</a>
-    <a class="branch branch22" data-value="branch22">Branch 22</a>
+  <div class="branch-list" aria-label="Transit line branch list" id="branchList">
+    <!-- Generated dynamically by JavaScript -->
   </div>
 
   <!-- Info Panel for Selected Station -->
@@ -274,11 +278,59 @@
     ];
 
     const sphere = document.getElementById('sphere');
+    const branchListContainer = document.getElementById('branchList');
     const totalNodes = stationData.length;
     const radius = 400;
 
     // Store node references for interaction
     const nodeMap = new Map();
+
+    // Build branch mapping - group stations by branch
+    const branchMap = new Map();
+    stationData.forEach(station => {
+      if (!branchMap.has(station.branch)) {
+        branchMap.set(station.branch, []);
+      }
+      branchMap.get(station.branch).push(station);
+    });
+
+    // Generate branch list UI with station data
+    branchMap.forEach((stations, branchId) => {
+      const branchElement = document.createElement('a');
+      branchElement.className = 'branch';
+      branchElement.href = '#';
+      branchElement.dataset.value = branchId;
+      
+      // Display station names (first 2-3, then indicator)
+      const stationNames = stations.map(s => s.name).slice(0, 2);
+      const stationList = stationNames.length > 1 
+        ? stationNames.join(', ') + (stations.length > 2 ? '...' : '')
+        : stationNames[0];
+      
+      branchElement.innerHTML = `
+        <span class="branch-name">${branchId.replace('branch', 'Branch ')}</span>
+        <span class="branch-stations">${stationList}<br><span class="station-count">${stations.length} station${stations.length !== 1 ? 's' : ''}</span></span>
+      `;
+      
+      branchElement.addEventListener('click', (e) => {
+        e.preventDefault();
+        const branchValue = branchElement.dataset.value;
+        // Filter nodes by branch
+        document.querySelectorAll('.node').forEach(node => {
+          const stationId = parseInt(node.dataset.stationId);
+          const station = stationData.find(s => s.id === stationId);
+          if (station && station.branch === branchValue) {
+            node.style.opacity = 1;
+            node.style.filter = 'drop-shadow(0 0 10px #00ffcc)';
+          } else {
+            node.style.opacity = 0.2;
+            node.style.filter = 'none';
+          }
+        });
+      });
+      
+      branchListContainer.appendChild(branchElement);
+    });
 
     // 1. Generate and mathematically map station nodes onto a 3D Sphere Surface
     stationData.forEach((station, i) => {
@@ -361,26 +413,6 @@
       
       infoPanel.classList.add('active');
     }
-
-    // Branch list interactivity
-    document.querySelectorAll('.branch').forEach(branchElement => {
-      branchElement.addEventListener('click', (e) => {
-        e.preventDefault();
-        const branchValue = branchElement.dataset.value;
-        // Filter nodes by branch
-        document.querySelectorAll('.node').forEach(node => {
-          const stationId = parseInt(node.dataset.stationId);
-          const station = stationData.find(s => s.id === stationId);
-          if (station && station.branch === branchValue) {
-            node.style.opacity = 1;
-            node.style.filter = 'drop-shadow(0 0 10px #00ffcc)';
-          } else {
-            node.style.opacity = 0.2;
-            node.style.filter = 'none';
-          }
-        });
-      });
-    });
 
     // Initialize animation loop engine
     renderLiveModule();
