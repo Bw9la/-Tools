@@ -162,75 +162,99 @@
       font-size: 11px;
       line-height: 1.6;
     }
+
+    /* Branch list styling */
+    .branch-list {
+      position: fixed;
+      left: 20px;
+      top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-height: 70vh;
+      overflow-y: auto;
+      padding: 10px;
+      background-color: rgba(5, 5, 5, 0.72);
+      border: 1px solid rgba(0, 255, 204, 0.25);
+      border-radius: 8px;
+      font-size: 11px;
+    }
+
+    .branch {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      padding: 4px 8px;
+      border-left: 2px solid rgba(0, 255, 204, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    .branch:hover {
+      color: #00ffcc;
+      border-left-color: #00ffcc;
+    }
   </style>
 </head>
 <body>
 
-<div class="scene">
+  <div class="scene">
     <div class="sphere" id="sphere"></div>
   </div>
 
-  <div class="branch-list" aria-label="Z Expressline branch list">
+  <div class="branch-list" aria-label="B Expressline branch list">
     <a class="branch branch1" data-value="station #1">
-        Bedford Park Blvd
-        </a>
+      Bedford Park Blvd
+    </a>
     <a class="branch branch2" data-value="station #2">
-        Fordham Rd
-        </a>
+      Fordham Rd
+    </a>
     <a class="branch branch3" data-value="station #3">
-        Tremont Av
-        </a>
+      Tremont Ave
+    </a>
     <a class="branch branch4" data-value="station #4">
-       170 st
-        </a>
+      170 st
+    </a>
     <a class="branch branch5" data-value="station #5">
-        145 st
-        </a>
+      145 st
+    </a>
     <a class="branch branch6" data-value="station #6">
-        125 st
-        </a>
+      125 st
+    </a>
     <a class="branch branch7" data-value="station #7">
-        Cathedral Parkway
-        </a>
+      Cathedral Parkway
+    </a>
     <a class="branch branch8" data-value="station #8">
-        96 st
-        </a>
+      96 st
+    </a>
     <a class="branch branch9" data-value="station #9">
-        81 St
-        </a>
+      81 St
+    </a>
     <a class="branch branch10" data-value="station #10">
-        39 St Colombus Circle
-        </a>
+      39 St Colombus Circle
+    </a>
     <a class="branch branch11" data-value="station #11">
-        47-50 Rockfeller
-        </a>
+      47-50 Rockfeller
+    </a>
     <a class="branch branch12" data-value="station #12">
-        23 St
-        </a>
+      23 St
+    </a>
     <a class="branch branch13" data-value="station #13">
-        West 4 St
-        </a>
+      West 4 St
+    </a>
     <a class="branch branch14" data-value="station #14">
-       Dekalb Ave
-        </a>
-    <a class="branch branch15" data-value="station #15">   
-       7 Ave
-        </a>
+      Dekalb Ave
+    </a>
+    <a class="branch branch15" data-value="station #15">
+      7 Ave
+    </a>
     <a class="branch branch16" data-value="station #16">
-       Church Ave
-        </a>
+      Church Ave
+    </a>
     <a class="branch branch17" data-value="station #17">
-       Kings Hwy
+      Kings Hwy
     </a>
     <a class="branch branch18" data-value="station #18">
-      Auxiliray Station
-</a>
-  </div>
-  <!-- ==========================================================================
-       HTML STRUCTURE
-       ========================================================================== -->
-  <div class="scene">
-    <div class="sphere" id="sphere"></div>
+      Auxiliary Station
+    </a>
   </div>
 
   <!-- Info Panel for Selected Station -->
@@ -270,11 +294,11 @@
       { id: 15, name: "7 Ave", branch: "branch15" },
       { id: 16, name: "Church Ave", branch: "branch16" },
       { id: 17, name: "Kings Hwy", branch: "branch17" },
-      { id: 18, name: "Auxilliray station", branch: "branch18" },
-      { id: 19, name: "Auxilliray station", branch: "branch19" },
-      { id: 20, name: "Auxilliray station", branch: "branch20" },
-      { id: 21, name: "Auxilliray station", branch: "branch21" },
-      { id: 22, name: "Auxilliray station", branch: "branch22" }
+      { id: 18, name: "Auxiliary station", branch: "branch18" },
+      { id: 19, name: "Auxiliary station", branch: "branch19" },
+      { id: 20, name: "Auxiliary station", branch: "branch20" },
+      { id: 21, name: "Auxiliary station", branch: "branch21" },
+      { id: 22, name: "Auxiliary station", branch: "branch22" }
     ];
 
     const sphere = document.getElementById('sphere');
