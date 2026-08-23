@@ -161,6 +161,37 @@
       font-size: 11px;
       line-height: 1.6;
     }
+
+    /* Branch list styling from Module G */
+    .branch-list {
+      position: fixed;
+      left: 20px;
+      top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-height: 70vh;
+      overflow-y: auto;
+      padding: 10px;
+      background-color: rgba(5, 5, 5, 0.72);
+      border: 1px solid rgba(0, 255, 204, 0.25);
+      border-radius: 8px;
+      font-size: 11px;
+    }
+
+    .branch {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      padding: 4px 8px;
+      border-left: 2px solid rgba(0, 255, 204, 0.4);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .branch:hover {
+      color: #00ffcc;
+      border-left-color: #00ffcc;
+    }
   </style>
 </head>
 <body>
@@ -170,6 +201,32 @@
        ========================================================================== -->
   <div class="scene">
     <div class="sphere" id="sphere"></div>
+  </div>
+
+  <!-- Branch list for station filtering -->
+  <div class="branch-list" aria-label="Transit line branch list">
+    <a class="branch branch1" data-value="branch1">Branch 1</a>
+    <a class="branch branch2" data-value="branch2">Branch 2</a>
+    <a class="branch branch3" data-value="branch3">Branch 3</a>
+    <a class="branch branch4" data-value="branch4">Branch 4</a>
+    <a class="branch branch5" data-value="branch5">Branch 5</a>
+    <a class="branch branch6" data-value="branch6">Branch 6</a>
+    <a class="branch branch7" data-value="branch7">Branch 7</a>
+    <a class="branch branch8" data-value="branch8">Branch 8</a>
+    <a class="branch branch9" data-value="branch9">Branch 9</a>
+    <a class="branch branch10" data-value="branch10">Branch 10</a>
+    <a class="branch branch11" data-value="branch11">Branch 11</a>
+    <a class="branch branch12" data-value="branch12">Branch 12</a>
+    <a class="branch branch13" data-value="branch13">Branch 13</a>
+    <a class="branch branch14" data-value="branch14">Branch 14</a>
+    <a class="branch branch15" data-value="branch15">Branch 15</a>
+    <a class="branch branch16" data-value="branch16">Branch 16</a>
+    <a class="branch branch17" data-value="branch17">Branch 17</a>
+    <a class="branch branch18" data-value="branch18">Branch 18</a>
+    <a class="branch branch19" data-value="branch19">Branch 19</a>
+    <a class="branch branch20" data-value="branch20">Branch 20</a>
+    <a class="branch branch21" data-value="branch21">Branch 21</a>
+    <a class="branch branch22" data-value="branch22">Branch 22</a>
   </div>
 
   <!-- Info Panel for Selected Station -->
@@ -304,6 +361,26 @@
       
       infoPanel.classList.add('active');
     }
+
+    // Branch list interactivity
+    document.querySelectorAll('.branch').forEach(branchElement => {
+      branchElement.addEventListener('click', (e) => {
+        e.preventDefault();
+        const branchValue = branchElement.dataset.value;
+        // Filter nodes by branch
+        document.querySelectorAll('.node').forEach(node => {
+          const stationId = parseInt(node.dataset.stationId);
+          const station = stationData.find(s => s.id === stationId);
+          if (station && station.branch === branchValue) {
+            node.style.opacity = 1;
+            node.style.filter = 'drop-shadow(0 0 10px #00ffcc)';
+          } else {
+            node.style.opacity = 0.2;
+            node.style.filter = 'none';
+          }
+        });
+      });
+    });
 
     // Initialize animation loop engine
     renderLiveModule();
