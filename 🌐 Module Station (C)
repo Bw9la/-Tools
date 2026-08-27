@@ -260,10 +260,10 @@
     <a class="branch branch18" data-value="Station#18">
         Rockaway Ave
     </a>
-<a class="branch branch19" data-value="Station#18">
+<a class="branch branch19" data-value="Station#19">
         Liberty Ave
     </a>
-  <a class="branch branch20" data-value="Station#18">
+  <a class="branch branch20" data-value="Station#20">
         Shepherd Ave
     </a>
 </div>
@@ -282,26 +282,26 @@
 
   <script>
     const stationData = [
-      { id: 1, name: "Norwood 205 st", branch: "branch1" },
-      { id: 2, name: "Kingsbridge Rd", branch: "branch2" },
-      { id: 3, name: "182-183 St", branch: "branch3" },
-      { id: 4, name: "174-175 St", branch: "branch4" },
-      { id: 5, name: "167 St", branch: "branch5" },
-      { id: 6, name: "145 St", branch: "branch6" },
-      { id: 7, name: "59 St Columbus Circle", branch: "branch7" },
-      { id: 8, name: "47-50 St -Rockfeller Center", branch: "branch8" },
-      { id: 9, name: "34 St Herald Sq", branch: "branch9" },
-      { id: 10, name: "Broadway-Lafayette Av", branch: "branch10" },
-      { id: 11, name: "Atlantic Barclays", branch: "branch11" },
-      { id: 12, name: "9 av", branch: "branch12" },
-      { id: 13, name: "50 St", branch: "branch13" },
-      { id: 14, name: "62 St", branch: "branch14" },
-      { id: 15, name: "79 St", branch: "branch15" },
-      { id: 16, name: "20 Av", branch: "branch16" },
-      { id: 17, name: "25 Av", branch: "branch17" },
-      { id: 18, name: "Coney Island Stillwell Av", branch: "branch18" },
-      { id: 19, name: "Auxiliary Station", branch: "branch19" },
-      { id: 20, name: "Auxiliary Station", branch: "branch20" },
+      { id: 1, name: " 163 St", branch: "branch1" },
+      { id: 2, name: " 155 St", branch: "branch2" },
+      { id: 3, name: " 135 St", branch: "branch3" },
+      { id: 4, name: " 116 St", branch: "branch4" },
+      { id: 5, name: " 103 St", branch: "branch5" },
+      { id: 6, name: "86 St", branch: "branch6" },
+      { id: 7, name: "72 St", branch: "branch7" },
+      { id: 8, name: "50 St", branch: "branch8" },
+      { id: 9, name: "34 St Penn Station", branch: "branch9" },
+      { id: 10, name: "14 St", branch: "branch10" },
+      { id: 11, name: "Spring St", branch: "branch11" },
+      { id: 12, name: "Chambers", branch: "branch12" },
+      { id: 13, name: "High St", branch: "branch13" },
+      { id: 14, name: "Hoyt Schermerhorn", branch: "branch14" },
+      { id: 15, name: "Clinton Washington Ave", branch: "branch15" },
+      { id: 16, name: "Nostrand Ave", branch: "branch16" },
+      { id: 17, name: "Utica Ave", branch: "branch17" },
+      { id: 18, name: "Rockaway Ave", branch: "branch18" },
+      { id: 19, name: "Liberty Ave", branch: "branch19" },
+      { id: 20, name: "Shepherd Ave", branch: "branch20" },
       { id: 21, name: "Auxiliary Station", branch: "branch21" },
       { id: 22, name: "Auxiliary Station", branch: "branch22" },
       { id: 23, name: "Auxiliary Station", branch: "branch23" },
@@ -379,7 +379,7 @@
     function renderLiveModule() {
       currentX += (targetX - currentX) * 0.03;
       currentY += (targetY - currentY) * 0.03;
-      autoRotationAngle += 0.7;
+      autoRotationAngle += 0.4;
 
       sphere.style.transform = `rotateX(${currentX}deg) rotateY(${currentY + autoRotationAngle}deg)`;
       requestAnimationFrame(renderLiveModule);
