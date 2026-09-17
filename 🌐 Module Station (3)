@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="#B-tech x(MTA)" content="width=device-width, initial-scale=1.0">
-  <title>🌐 Module M - Transit Network</title>
+  <title>🌐 Module (3)- Transit Network</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -245,7 +245,7 @@
     function renderLiveModule() {
       currentX += (targetX - currentX) * 0.03;
       currentY += (targetY - currentY) * 0.03;
-      autoRotationAngle += 0.07;
+      autoRotationAngle += 0.3;
       sphere.style.transform = `rotateX(${currentX}deg) rotateY(${currentY + autoRotationAngle}deg)`;
       requestAnimationFrame(renderLiveModule);
     }
